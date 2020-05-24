@@ -30,7 +30,7 @@ public class SpringTest {
     /**
      * @author:lixin
      * @date:2020/5/24  23:18
-     * @description: æµ‹è¯•ç®€å•çš„è‡ªå®šä¹‰aop
+     * @description: ²âÊÔ¼òµ¥µÄ×Ô¶¨Òåaop
      */
     @Test
     public void testLogAop(){
@@ -41,8 +41,8 @@ public class SpringTest {
     /**
      * @author:lixin
      * @date:2020/5/24  23:20
-     * @description: æµ‹è¯•jdk8é»˜è®¤çš„default å…³é”®å­—
-     * åœ¨å·¥ä½œä¸­ç”¨æŸä¸ªæ¥å£çš„å®ä¾‹æ—¶ä¸ç”¨æ¯æ¬¡éƒ½å»å®ç°ä¸€æ¬¡æ¥å£çš„æ–¹æ³•
+     * @description: ²âÊÔjdk8Ä¬ÈÏµÄdefault ¹Ø¼ü×Ö
+     * ÔÚ¹¤×÷ÖĞÓÃÄ³¸ö½Ó¿ÚµÄÊµÀıÊ±²»ÓÃÃ¿´Î¶¼È¥ÊµÏÖÒ»´Î½Ó¿ÚµÄ·½·¨
      */
     @Test
     public void testDefault(){
