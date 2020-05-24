@@ -1,0 +1,6 @@
+server:
+  port: 8010
+
+api:
+  path: http://localhost:8091
+  version: 1
