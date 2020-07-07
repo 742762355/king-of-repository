@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <returnContents>
+        <returnContent>
+            <staffCode>员工代码</staffCode>
+            <staffImageUrl>头像内网url链接</staffImageUrl>
+            <staffImageNet>头像外网url链接</staffImageNet>
+            <politicalFlag>党徽</politicalFlag>
+            <politicalStaffFlag>党员标志</politicalStaffFlag>
+            <staffIntroduction>医生简介</staffIntroduction>
+            <staffAdvantage>医生擅长</staffAdvantage>
+            <workCode>员工工作牌号</workCode>
+            <staffName>员工姓名</staffName>
+            <staffSex>员工性别</staffSex>
+            <staffBirthday>员工出生日期</staffBirthday>
+            <identityNo>员工身份证号</identityNo>
+            <dutyDate>任职时间</dutyDate>
+            <deptCode>行政科室（代码）</deptCode>
+            <workKindName>工作类别名称</workKindName>
+            <mobilePhone>手机号码</mobilePhone>
+            <workStatus>在职状态</workStatus>
+            <titleCode>职称代码</titleCode>
+            <titleName>职称名称：主任，副主任</titleName >
+        </returnContent>
+    </returnContents>
+</root>
