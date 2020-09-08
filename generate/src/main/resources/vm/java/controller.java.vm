@@ -1,0 +1,72 @@
+package ${packageName}.controller.${prefix};
+
+import ${packageName}.domain.${prefix}.${tableName};
+import ${packageName}.domain.base.PageRequest;
+import ${packageName}.domain.base.PageResult;
+import ${packageName}.infrastructure.annotation.SerializedField;
+import ${packageName}.service.${prefix}.${tableName}Service;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value="api/${_tableName}.toLowerCase().replace("_","/")")
+@Api(tags={"${tableName}Controller"},description="${tableComment}接口}")
+public class ${tableName}Controller{
+
+    @Autowired
+    private ${tableName}Service ${exampleName}Service;
+
+    @RequestMapping(method = RequestMethod.POST)
+    @ApiOperation(value="新增${tableComment}",notes="新增${tableComment}")
+    @SerializedField(moduleName = "新增${tableComment}")
+    public int add(@RequestBody @Validated ${tableName} ${exampleName}) {
+        return ${exampleName}Service.add${tableName}(${exampleName});
+    }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    @ApiOperation(value = "修改${tableComment}", notes = "修改${tableComment}")
+    @SerializedField(moduleName = "修改${tableComment}")
+    public int update(@RequestBody ${tableName} ${exampleName}) {
+        return ${exampleName}Service.update${tableName}(${exampleName});
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ApiOperation(value = "根据主键id删除指定${tableComment}", notes = "根据主键id删除指定${tableComment}")
+    @SerializedField(moduleName = "删除${tableComment}")
+    public int del(@PathVariable(value = "id") String id) {
+        return ${exampleName}Service.del${tableName}(id);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    @ApiOperation(value = "根据ids批量删除${tableComment}", notes = "根据ids批量删除${tableComment}")
+    @SerializedField(moduleName = "批量删除${tableComment}")
+    public int delList(@RequestBody String ids) {
+        return ${exampleName}Service.del${tableName}List(ids);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ApiOperation(value = "根据主键id获取${tableComment}", notes = "根据主键id获取${tableComment}")
+    @SerializedField(moduleName = "获取${tableComment}")
+    public ${tableName} get(@PathVariable(value = "id") String id) {
+        return ${exampleName}Service.get${tableName}(id);
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ApiOperation(value = "获取${tableComment}列表", notes = "获取${tableComment}列表")
+    @SerializedField(moduleName = "获取${tableComment}列表")
+    public List<${tableName}> getList(@RequestParam(required = false) String keyword) {
+        return ${exampleName}Service.get${tableName}List(keyword);
+    }
+
+    @RequestMapping(value = "/page/list", method = RequestMethod.GET)
+    @ApiOperation(value = "获取${tableComment}分页列表", notes = "获取${tableComment}分页列表")
+    @SerializedField(moduleName = "获取${tableComment}列表")
+    public PageResult<${tableName}> get${tableName}PageList(@RequestParam(required = false) String keyword, PageRequest pageRequest) {
+        return ${exampleName}Service.get${tableName}PageList(keyword, pageRequest);
+    }
+}

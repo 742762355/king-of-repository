@@ -19,9 +19,9 @@ public class LogAspect {
     public Object around(ProceedingJoinPoint proceed){
         Object result = null;
         try {
-            System.out.println("11");
+            System.out.println("日志切面前");
             result = proceed.proceed();
-            System.out.println(22);
+            System.out.println("日志切面后");
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }

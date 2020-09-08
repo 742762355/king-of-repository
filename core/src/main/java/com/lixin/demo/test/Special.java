@@ -13,17 +13,6 @@ public class Special {
 
     Integer[] array;
 
-    //java不能
-//    public void and(){
-//        if (array&&array[0]&&array[0].equals(2)){}
-//    }
-
-
-    //vue写法能这样写
-    //var list=[];
-    //if(this.list&&this.list[0]){ ...}
-    //页面展示如果没值或者取不到对象的属性  不让页面报错  也不使用v-if
-    //{{list[0]&&list[0].name}}  or   {{item&&item.name}}
 
 
     

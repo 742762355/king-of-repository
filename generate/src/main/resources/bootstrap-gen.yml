@@ -1,0 +1,5 @@
+gen:
+  table-name: sys_user
+  package-name: com.lixin
+  author: l-gen
+  database-name: db_outpatient_appointment

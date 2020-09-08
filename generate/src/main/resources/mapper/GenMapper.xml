@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lixin.mapper.GenMapper">
+
+    <select id="selectColumns" parameterType="java.lang.String" resultType="com.lixin.domain.GenColumn">
+        select table_schema,table_name,column_name,is_nullable,column_default,data_type,column_key,column_comment
+        FROM information_schema.`COLUMNS`
+        <where>
+            TABLE_SCHEMA = #{databaseName} and TABLE_NAME = #{tableName};
+        </where>
+    </select>
+
+    <select id="selectTableComment" parameterType="java.lang.String" resultType="java.lang.String">
+        select table_comment
+        FROM information_schema.`TABLES`
+        <where>
+            table_schema = #{databaseName} and table_name = #{tableName}
+        </where>
+    </select>
+</mapper>

@@ -2,7 +2,9 @@ package com.lixin.demo.utils;
 
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
+import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
+import org.springframework.util.CollectionUtils;
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -21,6 +23,11 @@ import java.util.regex.Pattern;
 
 public class XmlUtil {
 
+    //获取属性
+    public static Object getAttrValue(Node node, String attr) {
+        return node.valueOf("@" + attr);
+    }
+
     public static void main(String[] args) {
 
 //        String xml = turnDocumentToString();
@@ -35,6 +42,9 @@ public class XmlUtil {
 //        params.put("access_token","dada45b0-8a48-4369-93bf-bb5a355b123f");
 //        String s = HttpRequest.sendPost("http://localhost:8080/outapi/sync/staff", params);
 //        System.out.println(s);
+
+        org.dom4j.Document document = XmlUtil.load(replaceBlank(turnDocumentToString()), "utf-8");
+        Element xmlParam = getXmlParam(document, "//return//POOR_IN200902UV//controlActProcess//subject//placerGroup", "");
     }
 
     private List<Map<String,String>> xml2Map(String xml){
@@ -81,7 +91,7 @@ public class XmlUtil {
     private static String turnDocumentToString() {
         try {
             // 读取 xml 文件
-            File fileinput = new File("E:/fileDownload/test.xml");
+            File fileinput = new File("E:/fileDownload/asa.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory
                     .newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -114,7 +124,11 @@ public class XmlUtil {
             e.printStackTrace();
             return null;
         }
+    }
 
-
+    private static <T> T getXmlParam(org.dom4j.Document document, String expression, String attributeName) {
+        List<Node> nodeList = document.selectNodes(expression);
+        if (CollectionUtils.isEmpty(nodeList)) return null;
+        return (T)XmlUtil.getAttrValue(nodeList.get(0), attributeName);
     }
 }

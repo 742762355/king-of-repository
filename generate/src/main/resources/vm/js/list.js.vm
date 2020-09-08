@@ -1,0 +1,205 @@
+/**
+ *  @author   ${author}
+ *  @version  1.0
+ **/
+require(['common', 'baseLayout', 'hciMask', 'request'], function (common, BaseLayout, HCIMask, Request) {
+    $(function () {
+        var baseLayout = new BaseLayout({
+            pattern: '2U',//不用2U就删除
+            cells: {
+                a: {
+                    attachId: 'grid',
+                    attachType: 'grid',
+                    toolbarParam: {
+                        buttons: {
+                            btnCustomAdd: {
+                                id: 'btnSyncData',
+                                type: 'button',
+                                text: '你的button按钮名',
+                                img: 'sync.png',
+                                onClick: function () {
+
+                                }
+                            },
+                            add: true,
+                            edit: true,
+                            del: true
+                        },
+                        searchers: {
+                            fkId: {
+                                label: '关联信息:',
+                                type: 'select',
+                                name: 'fkId',
+                                ajaxParam: {
+                                    url: "",
+                                    data: {}
+                                },
+                                selectValueField: 'id',
+                                selectTextField: 'name',
+                                defaultSelectValue: 0,
+                                defaultSelectType: 'index',
+                                dataAction: 'server',
+                                width: 120,
+                                onChange: function (value) {
+                                    baseLayout.params.cells["a"].gridObj.loadData();
+                                }
+                            },
+                            keyword: {
+                                label: "关键字：",
+                                name: 'keyword',
+                                type: "text",
+                                width: 60
+                            },
+                            btnSearch: true
+                        },
+                        delParam: {
+                            ajax: {
+                                url: "api/${_tableName}.toLowerCase().replace(\"_\",\"/\")"
+                            }
+                        }
+                    },
+                    gridParam: {
+                        ajax: {
+                            url: "api/${_tableName}.toLowerCase().replace(\"_\",\"/\")/page/list"
+                        },
+                        showType: 'list',
+                        row: {
+                            checkbox: 0,
+                            selectIndex: 0,
+                            onSelect: function (rowData) {
+                                //查找右侧关联数据
+                                baseLayout.params.cells["b"].gridObj.loadData();
+                            }
+                        },
+                        isUsePage: false,
+                        columns: [
+                            #foreach($column in $columns)
+                            {display: '${columnComment}', name: '${name}', width: 150, align: 'center'},
+                            #end
+                            {
+                                display: '操作', width: 60, align: 'center', fixed: 'right',
+                                renderItems: {
+                                    'edit': true,
+                                    'del': {
+                                        url: "api/${_tableName}.toLowerCase().replace(\"_\",\"/\")/{id}"
+                                    }
+                                }
+                            }
+                        ],
+                    },
+                    winParam: {
+                        winCallback: "win_${_tableName}.toLowerCase()_detail_callback}",
+                        all: {
+                            href: "${_tableName}.toLowerCase().replace(\"_\",\"/\")/detail.html"
+                        },
+                        add: {
+                            title: '新增${tableComment}',
+                            area: ["1100px", "700px"]
+                        },
+                        edit: {
+                            title: '编辑${tableComment}',
+                            reqInfoKey: 'id',
+                            area: ["1100px", "700px"]
+                        }
+                    }
+                },
+                b: {
+                    attachId: 'grid1',
+                    attachType: 'grid',
+                    toolbarParam: {
+                        buttons: {
+                            'add': true,
+                            'edit': false,
+                            'del': true
+                        },
+                        searchers: {
+                            keyword: {
+                                label: "关键字：",
+                                name: 'keyword',
+                                type: "text",
+                                width: 150
+                            },
+                            btnSearch: true
+                        },
+                        delParam: {
+                            ajax: {
+                                url: "",
+                            }
+                        },
+                        addParam: {
+                            urlParam: function () {
+                                if (baseLayout) {
+                                    var select = baseLayout.params.cells["a"].gridObj.getSelectedRow();
+                                    if (select && select["id"]) {
+                                        var urlParam =  {
+                                            fkDepartmentId: select["id"]
+                                        };
+                                        return urlParam;
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    gridParam: {
+                        isInitLoadData: false,
+                        target: 'grid1',
+                        ajax: {
+                            url: "",
+                            data: function () {
+                                if (baseLayout) {
+                                    var select = baseLayout.params.cells["a"].gridObj.getSelectedRow();
+                                    if (select) {
+                                        return {
+                                            fkDepartmentId: select["id"]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        columns: [
+                            {display: '排序', name: 'sort', width: 100, align: 'center'},
+                            {
+                                display: '启用状态', width: 80, align: 'center', name: 'state', fixed: 'right',
+                                renderItems: {
+                                    'btnSwitch': {
+                                        url: "api/sys/consult/room/{id}/{state}",
+                                        onValue: 1,
+                                        offValue: 0,
+                                        disable: false,
+                                        confirmMsg: '是否修改当前状态?'
+                                    }
+                                }
+                            },
+                            {
+                                display: '操作', width: 60, align: 'center', fixed: 'right',
+                                renderItems: {
+                                    'edit': true,
+                                    'del': {
+                                        url: "api/sys/consult/room/{id}"
+                                    }
+                                }
+                            }
+                        ],
+                        showType: 'list'
+                    },
+                    winParam: {
+                        winCallback: "win_sys_department_consult_room_detail_callback",
+                        all: {
+                            href: "sys/department/consult/room/detail.html"
+                        },
+                        add: {
+                            title: '新增诊室信息',
+                            area: ["620px", "430px"]
+                        },
+                        edit: {
+                            title: '编辑诊室信息',
+                            reqInfoKey: 'id',
+                            area: ["620px", "430px"]
+                        }
+                    }
+                }
+            }
+        });
+
+    })
+});

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="${packageName}.dao.${prefix}.${tableName}Mapper}">
+
+    <sql id="Base_Column_List">
+        select
+        #foreach($column in $columns)
+        t1.${column.columnName} as ${column.name}
+        #end
+        from ${_tableName} t1
+    </sql>
+
+    <select id="get${tableName}List" parameterType="java.lang.String" resultType="${packageName}.domain.${prefix}.${tableName}">
+        <include refid="Base_Column_List"/>
+        <where>
+
+        </where>
+    </select>
+</mapper>
+
+

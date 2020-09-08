@@ -1,0 +1,43 @@
+package ${packageName}.domain.${prefix};
+
+#foreach($class in $importClass)
+import ${class};
+#end
+
+/**
+ * @author: ${author}
+ * @date: ${datetime}
+ */
+@Table(name="${_tableName}")
+public class ${tableName} extends BaseEntity{
+
+#foreach($column in $columns)
+#if($column.dataType == "Date")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+#end
+#if($column.isNullable == "NO" && !$column.columnDefault )
+    @NotBlank(message = "$column.columnComment不能为空！")
+#end
+    @Column(name="${column.columnName}")
+    private ${column.dataType} ${column.name};// $column.columnComment
+
+#end
+
+    #foreach($column in $columns)
+    #set($AttrName=$column.name.substring(0,1).toUpperCase()+${column.name.substring(1)})
+
+    public void set${AttrName}($column.dataType $column.name)
+    {
+        this.$column.name=$column.name;
+    }
+
+    public ${column.dataType} get${AttrName}()
+    {
+        return $column.name;
+    }
+
+    #end
+
+
+}

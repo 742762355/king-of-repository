@@ -11,5 +11,10 @@
 
     <artifactId>service</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.lixin</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
+    </dependencies>
 </project>

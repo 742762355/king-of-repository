@@ -1,0 +1,24 @@
+package ${packageName}.service.${prefix};
+
+import ${packageName}.domain.${prefix}.${tableName};
+import ${packageName}.domain.base.PageRequest;
+import ${packageName}.domain.base.PageResult;
+
+import java.util.List;
+
+public interface ${tableName}Service{
+
+    int add${tableName}(${tableName} ${exampleName});
+
+    int update${tableName}(${tableName} ${exampleName});
+
+    int del${tableName}(String id);
+
+    int del${tableName}List(String ids);
+
+    ${tableName} get${tableName}(String id);
+
+    List<${tableName}> get${tableName}List(String keyword);
+
+    PageResult<${tableName}> get${tableName}PageList(String keyword, PageRequest pageRequest);
+}
