@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @ComponentScan("com.lixin")
 @EnableAsync
-@MapperScan("com.lixin")
+//@MapperScan("com.lixin")
 public class DemoApplication {
 
 

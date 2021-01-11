@@ -1,0 +1,1 @@
+undertow.resourcePath=scr.main.resources.template

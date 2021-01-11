@@ -16,4 +16,8 @@ public class HelloController extends Controller {
     public void word(){
         renderText("hello jfinal world to word page!");
     }
+
+    public void page(){
+        render("list.html");
+    }
 }
