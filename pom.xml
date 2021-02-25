@@ -25,6 +25,7 @@
         <module>service</module>
         <module>Jdemo</module>
         <module>generate</module>
+        <module>dubbo-test</module>
     </modules>
 
     <properties>
