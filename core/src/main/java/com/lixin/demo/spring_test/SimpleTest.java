@@ -2,6 +2,8 @@ package com.lixin.demo.spring_test;
 
 import com.alibaba.fastjson.JSON;
 import com.lixin.demo.utils.XmlUtil;
+import common.utils.LogUtil;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.dom4j.*;
 import org.dom4j.io.SAXReader;
 import org.junit.Test;
@@ -13,6 +15,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.util.*;
 
 public class SimpleTest {
@@ -116,9 +119,68 @@ public class SimpleTest {
         List<String> list = getList();
     }
 
-
-    public LinkedList<String> getList(){
+    private LinkedList<String> getList(){
         return new LinkedList<>();
+    }
+
+
+    @Test
+    public void Md5(){
+        String string = DigestUtils.md5Hex("zysoft@2020");
+        MessageDigest md5Digest = DigestUtils.getMd5Digest();
+
+    }
+
+    @Test
+    public void testCatch(){
+        try {
+            m();
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(1);
+        }
+    }
+
+    private boolean m(){
+        try {
+            if (1/0==1){
+                System.out.println(122);
+            }
+            return true;
+        }finally {
+            System.out.println("xx");
+        }
+//        return false;
+    }
+
+    @Test
+    public void integerTest(){
+        Integer a=222;
+        Integer b=222;
+        System.out.println(a==b);
+    }
+
+    @Test
+    public void MapForeachTest(){
+        Map<String,Object> map=new HashMap<>();
+        map.forEach((k,v)->{
+
+        });
+    }
+
+
+    @Test
+    public void exceptionTest(){
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+            try {
+                if (i/2==1){
+                    throw new RuntimeException("error");
+                }
+            }catch (Exception e){
+                LogUtil.error("error",e);
+            }
+        }
     }
 }
 interface Parent{

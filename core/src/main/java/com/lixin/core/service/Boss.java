@@ -3,6 +3,7 @@ package com.lixin.core.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 
 /**
@@ -16,42 +17,50 @@ import org.springframework.stereotype.Component;
 @Component
 public class Boss {
 
-    @Autowired
+//    @Autowired
     private Worker worker;
 
-    @Autowired
+//    @Autowired
     private Manager manager;
 
     private Worker1 worker1;
 
-    @Autowired(required = false)
-    public Boss(){
-        System.out.println(1);
-    }
+//    @Autowired(required = false)
+//    public Boss(){
+//        System.out.println("无参构造");
+//    }
 
-    @Autowired(required = false)
+//    @Autowired(required = false)
     public Boss(Worker worker){
         this.worker=worker;
+        System.out.println("参数为worker的构造");
     }
 
+//    public void setManager(Manager manager) {
+//        this.manager = manager;
+//        System.out.println(this.manager);
+//    }
 
-    @Autowired(required = false)
-    public Boss(Manager manager){
-        this.manager=manager;
-    }
+//    @Autowired(required = false)
+//    public Boss(Manager manager){
+//        this.manager=manager;
+//        System.out.println("参数为manager的构造");
+//    }
 
-    @Autowired(required = false)
-    public Boss(Worker1 worker1,Manager manager){
-        this.worker1=worker1;
-        this.manager=manager;
-    }
+//    @Autowired(required = false)
+//    public Boss(Worker1 worker1,Manager manager){
+//        this.worker1=worker1;
+//        this.manager=manager;
+//        System.out.println("参数为worker1+manager的构造");
+//    }
 
 
-    @Autowired(required = false)
-    public Boss(Worker worker,Manager manager){
-        this.worker=worker;
-        this.manager=manager;
-    }
+//    @Autowired(required = false)
+//    public Boss(Worker worker,Manager manager){
+//        this.worker=worker;
+//        this.manager=manager;
+//        System.out.println("参数为worker1+manager的构造");
+//    }
 
 
 
@@ -60,5 +69,6 @@ public class Boss {
 //        this.worker=worker;
 //        this.manager=manager;
 //        this.worker1=worker1;
+//        System.out.println("参数为3的构造");
 //    }
 }
