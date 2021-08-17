@@ -1,4 +1,4 @@
-package ${packageName}.com.lixin.controller.${prefix};
+package ${packageName}.controller.${prefix};
 
 import ${packageName}.domain.${prefix}.${tableName};
 import ${packageName}.domain.base.PageRequest;

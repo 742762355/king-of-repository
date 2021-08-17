@@ -1,4 +1,4 @@
-package ${packageName}.com.lixin.serviceImpl.${prefix};
+package ${packageName}.serviceImpl.${prefix};
 
 import ${packageName}.dao.${prefix}.${tableName}Mapper;
 import ${packageName}.domain.${prefix}.${tableName};
