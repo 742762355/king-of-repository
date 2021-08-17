@@ -1,0 +1,11 @@
+server:
+  port: 8882
+  servlet:
+    context-path: /msg
+
+spring:
+  application:
+    name: msg-service
+
+
+
