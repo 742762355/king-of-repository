@@ -12,7 +12,7 @@ public class OOMTest {
 
     private ScheduledExecutorService executors=Executors.newScheduledThreadPool(10);
 
-    @PostConstruct
+//    @PostConstruct
     public void init(){
         executors.schedule(new RunTask(),1,TimeUnit.SECONDS);
     }
