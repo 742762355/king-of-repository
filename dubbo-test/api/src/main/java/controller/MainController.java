@@ -1,4 +1,4 @@
-package com.lixin.controller;
+package controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
