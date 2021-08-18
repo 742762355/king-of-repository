@@ -10,8 +10,6 @@ import org.junit.Test;
 import org.springframework.util.StringUtils;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -115,7 +113,6 @@ public class SimpleTest {
 
     @Test
     public void testInterface(){
-        Parent p=new Children();
         List<String> list = getList();
     }
 
@@ -182,11 +179,9 @@ public class SimpleTest {
             }
         }
     }
-}
-interface Parent{
 
-}
-
-class Children implements Parent{
-
+    @Test
+    public void timestamp(){
+        System.out.println(System.currentTimeMillis());
+    }
 }
