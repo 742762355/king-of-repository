@@ -1,6 +1,6 @@
 package com.lixin.serviceImpl;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.Service;
 import service.MainService;
 
 @Service
