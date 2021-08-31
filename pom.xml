@@ -26,6 +26,7 @@
         <module>Jdemo</module>
         <module>generate</module>
         <module>dubbo-test</module>
+        <module>common-core</module>
     </modules>
 
     <properties>
