@@ -47,6 +47,12 @@
             <version>1.16.22</version>
             <!--<optional>true</optional>-->
         </dependency>
+
+        <dependency>
+            <groupId>com.lixin</groupId>
+            <artifactId>core-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

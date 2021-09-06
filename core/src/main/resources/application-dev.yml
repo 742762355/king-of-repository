@@ -18,3 +18,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
+modo:
+  user:
+    appId: 1111
+

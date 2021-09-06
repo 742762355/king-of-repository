@@ -1,11 +1,12 @@
 server:
-  port: 8883
+  port: 8886
   servlet:
     context-path: /order
 
 spring:
   application:
     name: order-service
+
 dubbo:
   registry:
     address: zookeeper://127.0.0.1:2181
