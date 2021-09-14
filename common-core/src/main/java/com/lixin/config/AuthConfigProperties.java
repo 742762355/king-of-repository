@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "modo.user")
 public class AuthConfigProperties {
 
-    private boolean enableAuth;
+    private boolean enabled=true;
 
     private String environment;
 
@@ -14,12 +14,12 @@ public class AuthConfigProperties {
 
     private String secret;
 
-    public boolean isEnableAuth() {
-        return enableAuth;
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    public void setEnableAuth(boolean enableAuth) {
-        this.enableAuth = enableAuth;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getEnvironment() {

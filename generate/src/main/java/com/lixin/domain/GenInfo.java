@@ -1,8 +1,6 @@
 package com.lixin.domain;
 
 import com.lixin.config.PropertiesConfig;
-import com.lixin.util.GenUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashSet;
 import java.util.List;

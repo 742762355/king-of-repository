@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 public class XmlUtil {
 
     //获取属性
-    public static Object getAttrValue(Node node, String attr) {
+    private static Object getAttrValue(Node node, String attr) {
         return node.valueOf("@" + attr);
     }
 

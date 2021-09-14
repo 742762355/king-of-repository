@@ -8,8 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-//@EnableConfigurationProperties(AuthConfigProperties.class)
-@ConditionalOnProperty(prefix = "modo.user.enabled",matchIfMissing = true)
+@ConditionalOnProperty(name = "modo.user.enabled",matchIfMissing = true)
 public class AuthAutoConfiguration {
 
 
@@ -18,5 +17,7 @@ public class AuthAutoConfiguration {
     public AuthorizationAdvisor getHandler(){
         return new AuthorizationAdvisor();
     }
+
+
 
 }

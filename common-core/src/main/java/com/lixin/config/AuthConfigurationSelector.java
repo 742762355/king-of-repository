@@ -11,12 +11,12 @@ public class AuthConfigurationSelector extends AdviceModeImportSelector<EnableAu
     @Override
     @Nullable
     protected String[] selectImports(@NonNull AdviceMode adviceMode) {
-        //todo  根据代理模式做事,现阶段不需要
-        switch (adviceMode){
-            case PROXY:
-                System.out.println(1);
-            case ASPECTJ:
-        }
+//        //todo  根据代理模式做事,现阶段不需要
+//        switch (adviceMode){
+//            case PROXY:
+//                System.out.println(1);
+//            case ASPECTJ:
+//        }
         return new String[]{AuthAutoConfiguration.class.getName()};
     }
 }

@@ -8,9 +8,9 @@ import java.util.concurrent.*;
 
 public class CountDownObject {
 
-    static final CountDownLatch countDownLatch=new CountDownLatch(5);
+    private static final CountDownLatch countDownLatch=new CountDownLatch(5);
 
-    private static List joinedList=new LinkedList();
+//    private static List joinedList=new LinkedList();
 
     private static boolean isFull=false;
 
@@ -26,7 +26,7 @@ public class CountDownObject {
         @Override
         public void run(){
             if (!isFull){
-                joinedList.add(joinId);
+//                joinedList.add(joinId);
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {

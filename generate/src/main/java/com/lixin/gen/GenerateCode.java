@@ -1,6 +1,5 @@
 package com.lixin.gen;
 
-import com.lixin.domain.GenColumn;
 import com.lixin.service.GenService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,13 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = GenerateCode.class)
 @MapperScan(basePackages = "com.lixin.mapper")
 @ComponentScan("com.lixin")
-@EnableConfigurationProperties
+//@EnableConfigurationProperties
 public class GenerateCode {
 
     @Autowired

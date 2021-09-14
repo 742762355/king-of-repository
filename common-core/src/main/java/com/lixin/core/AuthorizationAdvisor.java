@@ -4,9 +4,12 @@ import com.lixin.annotation.RequiresPermissions;
 import com.lixin.aop.AopAuthorizationInterceptor;
 import org.springframework.aop.support.StaticMethodMatcherPointcutAdvisor;
 import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.NonNullApi;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+
 
 public class AuthorizationAdvisor extends StaticMethodMatcherPointcutAdvisor {
 
@@ -20,6 +23,7 @@ public class AuthorizationAdvisor extends StaticMethodMatcherPointcutAdvisor {
 
 
     @Override
+    @SuppressWarnings("all")
     public boolean matches(Method method, Class<?> targetClass) {
         for (Class annClass : MATCH_ANNOTATIONS) {
             Annotation annotation = AnnotationUtils.findAnnotation(method, annClass);

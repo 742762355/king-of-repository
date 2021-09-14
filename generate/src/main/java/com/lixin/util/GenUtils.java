@@ -1,7 +1,6 @@
 package com.lixin.util;
 
 import com.lixin.domain.GenColumn;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.List;

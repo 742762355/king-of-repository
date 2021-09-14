@@ -29,10 +29,7 @@ public class StringUtil {
      * @return
      */
     public static boolean isEmpty(String str) {
-        if (str != null && str.trim().length() > 0) {
-            return false;
-        }
-        return true;
+        return !isNotEmpty(str);
     }
 
     /**
@@ -42,7 +39,7 @@ public class StringUtil {
      * @return
      */
     public static boolean isNotEmpty(String str) {
-        return !isEmpty(str);
+        return str != null && str.trim().length() > 0;
     }
 
     /**
