@@ -1,11 +1,10 @@
 package com.lixin.aop;
 
-import com.lixin.aop.AuthorizationHandler;
 import org.aopalliance.intercept.MethodInvocation;
 
 import java.lang.annotation.Annotation;
 
-public abstract class AbstractAuthInterceptor {
+abstract class AbstractAuthInterceptor {
 
     private AuthorizationHandler handler;
 

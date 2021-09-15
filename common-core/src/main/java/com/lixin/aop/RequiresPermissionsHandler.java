@@ -4,7 +4,7 @@ import com.lixin.annotation.RequiresPermissions;
 
 import java.lang.annotation.Annotation;
 
-public class RequiresPermissionsHandler extends AuthorizationHandler {
+class RequiresPermissionsHandler extends AuthorizationHandler {
 
 
     @Override

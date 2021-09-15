@@ -13,21 +13,20 @@ import java.lang.reflect.Method;
 
 public class AuthorizationAdvisor extends StaticMethodMatcherPointcutAdvisor {
 
-    private Class[] MATCH_ANNOTATIONS={
+    private Class[] MATCH_ANNOTATIONS = {
             RequiresPermissions.class
     };
 
-    public AuthorizationAdvisor(){
+    public AuthorizationAdvisor() {
         setAdvice(new AopAuthorizationInterceptor());
     }
 
 
     @Override
-    @SuppressWarnings("all")
     public boolean matches(Method method, Class<?> targetClass) {
         for (Class annClass : MATCH_ANNOTATIONS) {
             Annotation annotation = AnnotationUtils.findAnnotation(method, annClass);
-            if (annotation!=null)return true;
+            if (annotation != null) return true;
         }
         return false;
     }
