@@ -1,0 +1,31 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: modoGateway
+  cloud:
+      nacos:
+       server-addr: http://localhost:8848
+       discovery:
+         namespace: 564dbaac-e559-4c38-9459-18196ebb077c
+      gateway:
+        routes:
+          - id: modouser
+            uri: lb://modoUserServer/
+            predicates:
+            - Path=/user/**
+
+          - id: modomodule
+            uri: lb://modoModule/
+            predicates:
+            - Path=/module/**
+#            filters:
+#            - StripPrefix=1
+          - id: projectHelper
+            uri: http://localhost:8051/
+            predicates:
+            - Path=/ph/**
+            filters:
+            - StripPrefix=1
+
