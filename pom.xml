@@ -27,7 +27,7 @@
         <module>generate</module>
         <module>dubbo-test</module>
         <module>common-core</module>
-        <module>springproject</module>
+        <module>gateway-tmp</module>
     </modules>
 
     <properties>
