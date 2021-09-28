@@ -17,6 +17,7 @@ public class AopAuthorizationInterceptor implements MethodInterceptor {
 
     public AopAuthorizationInterceptor() {
         annotationMethodInterceptors.add(new RequiresPermissionsInterceptor());
+        annotationMethodInterceptors.add(new GuestInterceptor());
     }
 
     @Override
