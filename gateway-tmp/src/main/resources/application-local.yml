@@ -7,8 +7,8 @@ spring:
   cloud:
       nacos:
        server-addr: http://localhost:8848
-       discovery:
-         namespace: 564dbaac-e559-4c38-9459-18196ebb077c
+#       discovery:
+#         namespace: 564dbaac-e559-4c38-9459-18196ebb077c
       gateway:
         routes:
           - id: modouser
