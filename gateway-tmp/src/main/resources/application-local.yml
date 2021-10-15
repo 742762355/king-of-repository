@@ -7,8 +7,8 @@ spring:
   cloud:
       nacos:
        server-addr: http://localhost:8848
-#       discovery:
-#         namespace: 564dbaac-e559-4c38-9459-18196ebb077c
+       discovery:
+         namespace: 564dbaac-e559-4c38-9459-18196ebb077c
       gateway:
         routes:
           - id: modouser
@@ -26,6 +26,20 @@ spring:
             uri: http://localhost:8051/
             predicates:
             - Path=/ph/**
+            filters:
+            - StripPrefix=1
+
+          - id: modonotice
+            uri: http://localhost:8100/
+            predicates:
+            - Path=/notice/**
+            filters:
+            - StripPrefix=1
+
+          - id: modoversion
+            uri: http://localhost:8110/
+            predicates:
+            - Path=/version/**
             filters:
             - StripPrefix=1
 

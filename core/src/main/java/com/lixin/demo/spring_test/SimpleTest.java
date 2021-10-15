@@ -8,11 +8,15 @@ import org.dom4j.*;
 import org.dom4j.io.SAXReader;
 import org.junit.Test;
 import org.springframework.util.StringUtils;
+import org.springframework.web.socket.client.WebSocketClient;
+import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.xml.sax.SAXException;
 
+import javax.websocket.*;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.security.MessageDigest;
 import java.util.*;
 
@@ -184,4 +188,7 @@ public class SimpleTest {
     public void timestamp(){
         System.out.println(System.currentTimeMillis());
     }
+
+
+
 }
