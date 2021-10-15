@@ -1,4 +1,4 @@
-package com.lixin.core.interface_strategy;
+package com.lixin.core.interface_strategy.moban;
 
 public interface Person {
 
