@@ -1,44 +1,46 @@
 package com.lixin.demo.test;
 
+import com.lixin.demo.test.function_interface.IConvert;
+import com.lixin.demo.test.function_interface.TestRunnable;
 import org.junit.Test;
 
-import java.util.LinkedList;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class TestImpl {
 
 
-    public static void lockByTry(){
-        Random random=new Random(10);
-        if (random.nextInt()<10){
+    public static void lockByTry() {
+        Random random = new Random(10);
+        if (random.nextInt() < 10) {
             throw new RuntimeException("xxx");
         }
 
         try {
-            int z=2;
-        }catch (Exception e){
+            int z = 2;
+        } catch (Exception e) {
             System.out.println(2222);
-        }finally {
+        } finally {
             System.out.println(111);
         }
     }
 
-    public static void lockByTry1(){
+    public static void lockByTry1() {
         try {
-            Random random=new Random(10);
-            if (random.nextInt()<10){
+            Random random = new Random(10);
+            if (random.nextInt() < 10) {
                 throw new RuntimeException("xxx");
             }
             try {
-                int z=2;
-            }catch (Exception e){
+                int z = 2;
+            } catch (Exception e) {
                 System.out.println(2222);
-            }finally {
+            } finally {
                 System.out.println(111);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             System.out.println("ddddddddddddd");
         }
 
@@ -50,16 +52,9 @@ public class TestImpl {
 
 
     @Test
-    public void test(){
+    public void test() {
         System.out.println(Runtime.getRuntime().availableProcessors());
     }
 
-    @Test
-    public void tExtents(){
 
-    }
-
-    public void getList(LinkedList<String> linkedList){
-
-    }
 }

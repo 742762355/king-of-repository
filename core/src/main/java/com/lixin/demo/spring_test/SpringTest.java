@@ -5,7 +5,7 @@ import com.lixin.core.service.Boss;
 import com.lixin.core.service.SmsService;
 import com.lixin.core.service.UserService;
 import com.lixin.core.service.Worker;
-import com.lixin.demo.test.Client;
+import com.lixin.core.config.Client;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
