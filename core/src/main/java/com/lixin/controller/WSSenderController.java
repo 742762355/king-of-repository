@@ -19,6 +19,21 @@ public class WSSenderController {
 
     private static Session session;
 
+    private static final String domain1="lixin.module.com:8070";
+
+    private static final String domain2="msapi.modo2.cn";
+
+    private static final String domain3="47.52.143.190:9090";
+
+    private static final String domain4="192.168.13.75:8080";
+
+    //正式
+    private static final String domain5="msapi.modo.cn";
+
+    private static final String domain6="121.40.68.129:80";
+
+    private static final String wsUrl="ws://"+domain6+"/notice/websocket/466";
+
     {
         link();
     }
@@ -26,7 +41,7 @@ public class WSSenderController {
     public static void link(){
         try {
              WebSocketContainer webSocketContainer = ContainerProvider.getWebSocketContainer();
-             URI uri = URI.create("ws://localhost:8070/notice/websocket/466");
+             URI uri = URI.create(wsUrl);
             session=webSocketContainer.connectToServer(Client.class,uri);
             System.out.println("websocket link!!!");
         } catch (DeploymentException | IOException e) {

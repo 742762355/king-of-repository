@@ -1,18 +1,16 @@
 server:
-  port: 8090
+  port: 8070
 
 spring:
   application:
     name: modoGateway
   cloud:
       nacos:
-       server-addr: http://localhost:8848
-       discovery:
-         namespace: 564dbaac-e559-4c38-9459-18196ebb077c
+        server-addr: http://192.168.3.213:8848
       gateway:
         routes:
           - id: modouser
-            uri: lb://modoUserServer/
+            uri: http://192.168.13.75:8097
             predicates:
             - Path=/user/**
 
@@ -31,21 +29,11 @@ spring:
 #            - StripPrefix=1
 
           - id: modonotice
-            uri: lb://modoModule
+            uri: lb://modoModule/
             predicates:
             - Path=/notice/**
             filters:
             - StripPrefix=1
-            order: 2
-
-          - id: modonoticews
-            uri: lb:ws://modoModule
-            predicates:
-            - Path=/notice/websocket/**
-            filters:
-            - StripPrefix=1
-            order: 1
-
 
 #          - id: modoversion
 #            uri: http://localhost:8110/

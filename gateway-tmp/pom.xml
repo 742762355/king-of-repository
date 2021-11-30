@@ -7,6 +7,7 @@
         <groupId>com.lixin</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <version>1.1.1</version>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>gateway-tmp</artifactId>
@@ -47,19 +48,11 @@
             <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
             <!--<version>2.1.3</version>-->
         <!--</dependency>-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.16.22</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -104,4 +97,42 @@
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <!--<finalName>test</finalName>-->
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration><encoding>UTF-8</encoding>
+                    <!-- 过滤后缀为pkcs12、jks的证书文件 -->
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>p12</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 指定该Main Class为全局的唯一入口 -->
+                <configuration>
+                    <mainClass>com.lixin.SpringTestApplication</mainClass>
+                    <outputDirectory>D:\work\</outputDirectory>
+                    <fork>true</fork>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

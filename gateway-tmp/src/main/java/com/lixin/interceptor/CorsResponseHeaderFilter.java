@@ -1,5 +1,7 @@
 package com.lixin.interceptor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.cloud.gateway.filter.NettyWriteResponseFilter;
@@ -14,6 +16,8 @@ import java.util.ArrayList;
 @Component("corsResponseHeaderFilter")
 public class CorsResponseHeaderFilter implements GlobalFilter, Ordered {
 
+    private static Logger logger=LoggerFactory.getLogger(CorsResponseHeaderFilter.class);
+
     @Override
     public int getOrder() {
         // 指定此过滤器位于NettyWriteResponseFilter之后
@@ -23,6 +27,7 @@ public class CorsResponseHeaderFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        logger.debug("222");
         return chain.filter(exchange).then(Mono.defer(() -> {
             exchange.getResponse().getHeaders().entrySet().stream()
                     .filter(kv -> (kv.getValue() != null && kv.getValue().size() > 1))
