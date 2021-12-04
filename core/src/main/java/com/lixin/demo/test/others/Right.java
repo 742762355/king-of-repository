@@ -1,4 +1,4 @@
-package com.lixin.demo.test;
+package com.lixin.demo.test.others;
 
 /**
  * @author:lixin

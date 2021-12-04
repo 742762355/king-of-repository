@@ -1,4 +1,4 @@
-package com.lixin.demo.test;
+package com.lixin.demo.test.others;
 
 import com.lixin.core.domain.User;
 import com.lixin.core.interface_strategy.moban.Man;

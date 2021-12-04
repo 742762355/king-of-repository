@@ -1,4 +1,4 @@
-package com.lixin.demo.test;
+package com.lixin.demo.test.others;
 
 import java.io.Serializable;
 import java.util.Map;

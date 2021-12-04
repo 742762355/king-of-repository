@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Premain-Class: com.lixin.demo.test.javaagent.PreMain
+Can-Redefine-Classes: true
+Main-Class: com.lixin.demo.DemoApplication
