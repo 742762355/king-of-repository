@@ -14,4 +14,9 @@ public class IndexController {
     public String goIndex(){
         return "index";
     }
+
+    @GetMapping("/2d.html")
+    public String go2d(){
+        return "2d";
+    }
 }

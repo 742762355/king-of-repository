@@ -25,4 +25,43 @@
             <version>${spring-boot.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>beetl</finalName>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration><encoding>UTF-8</encoding>
+                    <!-- 过滤后缀为pkcs12、jks的证书文件 -->
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>p12</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 指定该Main Class为全局的唯一入口 -->
+                <configuration>
+                    <mainClass>com.lixin.BeetlApplication</mainClass>
+                    <outputDirectory>D:\work\</outputDirectory>
+                    <fork>true</fork>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
