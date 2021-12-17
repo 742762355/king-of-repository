@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @auther     lixin
+ * @author     lixin
  * @date       2021/9/6 10:52
  * @describe   一个做转发的类
  */
