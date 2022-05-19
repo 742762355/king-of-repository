@@ -48,11 +48,11 @@
             <!--<optional>true</optional>-->
         </dependency>
 
-        <dependency>
-            <groupId>com.lixin</groupId>
-            <artifactId>core-api</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.lixin</groupId>-->
+<!--            <artifactId>core-api</artifactId>-->
+<!--            <version>1.0.0</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
