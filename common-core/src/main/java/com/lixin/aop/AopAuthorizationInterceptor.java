@@ -1,19 +1,18 @@
 package com.lixin.aop;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * @author     lixin
- * @date       2021/9/6 10:52
- * @describe   一个做转发的类
+ * @author lixin
+ * @date 2021/9/6 10:52
+ * @describe 一个做转发的类
  */
 public class AopAuthorizationInterceptor implements MethodInterceptor {
 
-    private List<AbstractAuthInterceptor> annotationMethodInterceptors=new ArrayList<>();
+    private final List<AbstractAuthInterceptor> annotationMethodInterceptors = new ArrayList<>();
 
     public AopAuthorizationInterceptor() {
         annotationMethodInterceptors.add(new RequiresPermissionsInterceptor());
