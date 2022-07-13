@@ -1,0 +1,55 @@
+spring:
+  profiles:
+    active: local
+
+  application:
+    name: gateway-tmp
+  cloud:
+    nacos:
+      server-addr: http://localhost:8848
+      config:
+        file-extension: yml
+    gateway:
+      routes:
+        - id: modouser
+          uri: lb://modoUserServer/
+          predicates:
+            - Path=/user/**
+
+        - id: modomodule
+          uri: lb://modoModule/
+          predicates:
+            - Path=/module/**
+        #            filters:
+        #            - StripPrefix=1
+
+        #          - id: projectHelper
+        #            uri: http://localhost:8051/
+        #            predicates:
+        #            - Path=/ph/**
+        #            filters:
+        #            - StripPrefix=1
+
+        - id: modonotice
+          uri: lb://modoModule
+          predicates:
+            - Path=/notice/**
+          filters:
+            - StripPrefix=1
+          order: 2
+
+        - id: modonoticews
+          uri: lb:ws://modoModule
+          predicates:
+            - Path=/notice/websocket/**
+          filters:
+            - StripPrefix=1
+          order: 1
+
+
+#          - id: modoversion
+#            uri: http://localhost:8110/
+#            predicates:
+#            - Path=/version/**
+#            filters:
+#            - StripPrefix=1

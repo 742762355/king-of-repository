@@ -1,7 +1,7 @@
 package com.lixin.controller;
 
 
-import com.lixin.annotation.RequiresPermissions;
+//import com.lixin.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
 
-    @RequiresPermissions(value = "*")
+//    @RequiresPermissions(value = "*")
     @RequestMapping("/auth")
     public String doPermissions(){
         return "11";

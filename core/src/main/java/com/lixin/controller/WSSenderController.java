@@ -34,9 +34,9 @@ public class WSSenderController {
 
     private static final String wsUrl="ws://"+domain6+"/notice/websocket/466";
 
-    {
-        link();
-    }
+//    {
+//        link();
+//    }
 
     public static void link(){
         try {
