@@ -28,6 +28,7 @@
         <module>dubbo-test</module>
         <module>common-core</module>
         <module>gateway-tmp</module>
+        <module>etcd</module>
     </modules>
 
     <properties>
@@ -50,6 +51,7 @@
         <mysql-connector.version>5.1.39</mysql-connector.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <lombok.version>1.18.10</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -137,6 +139,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
                 <optional>true</optional>
             </dependency>
 
