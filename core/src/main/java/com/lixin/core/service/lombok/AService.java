@@ -10,7 +10,7 @@ public class AService {
 
 //    private final BService bService;
 
-    public String say(){
+    public String say() {
         return "a";
     }
 }

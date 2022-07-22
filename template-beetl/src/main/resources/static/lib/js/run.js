@@ -4,7 +4,7 @@ db.policystore.find({"deleteFlag": 0, "sceneType": "3"}).forEach(
         var replacedCollectDepartment = replaceWithRule(scene.collectDepartment);
         var replacedPublishDepartment = replaceWithRule(scene.publishDepartment);
 
-        if (replacedCollectDepartment&&replacedPublishDepartment) {
+        if (replacedCollectDepartment && replacedPublishDepartment) {
             print("部门不存在! id:" + scene._id);
             return;
         }

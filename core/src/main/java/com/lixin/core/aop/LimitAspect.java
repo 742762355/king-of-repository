@@ -17,12 +17,12 @@ public class LimitAspect {
 
 
     @Pointcut("@annotation(com.lixin.core.annotation.Limit)")
-    public void limit(){
+    public void limit() {
     }
 
 
     @Around("limit()")
-    public Object around(ProceedingJoinPoint joinPoint){
+    public Object around(ProceedingJoinPoint joinPoint) {
         //类
         Object target = joinPoint.getTarget();
         //方法名
@@ -30,7 +30,7 @@ public class LimitAspect {
         //方法参数类型
         Class<?>[] parameterTypes = ((MethodSignature) joinPoint.getSignature()).getMethod().getParameterTypes();
 
-        Method method=null;
+        Method method = null;
         try {
             method = target.getClass().getMethod(methodName, parameterTypes);
         } catch (NoSuchMethodException e) {
@@ -38,8 +38,8 @@ public class LimitAspect {
         }
 
         Limit limit = method.getAnnotation(Limit.class);
-        System.out.println("限制:"+limit.value());
-        Object proceed=null;
+        System.out.println("限制:" + limit.value());
+        Object proceed = null;
         try {
             proceed = joinPoint.proceed();
         } catch (Throwable throwable) {

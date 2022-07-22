@@ -8,7 +8,7 @@ public class JobTest {
 
 
     @Scheduled(cron = "0 */10 * * * ?")
-    public void execute(){
-        System.out.println("当前时间:"+System.currentTimeMillis()/1000);
+    public void execute() {
+        System.out.println("当前时间:" + System.currentTimeMillis() / 1000);
     }
 }

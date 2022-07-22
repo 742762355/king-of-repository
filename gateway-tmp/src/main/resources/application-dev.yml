@@ -5,35 +5,35 @@ spring:
   application:
     name: modoGateway
   cloud:
-      nacos:
-        server-addr: http://192.168.3.213:8848
+    nacos:
+      server-addr: http://192.168.3.213:8848
 
-      gateway:
-        routes:
-          - id: modouser
-            uri: http://192.168.13.75:8097
-            predicates:
+    gateway:
+      routes:
+        - id: modouser
+          uri: http://192.168.13.75:8097
+          predicates:
             - Path=/user/**
 
-          - id: modomodule
-            uri: lb://modoModule/
-            predicates:
+        - id: modomodule
+          uri: lb://modoModule/
+          predicates:
             - Path=/module/**
-#            filters:
-#            - StripPrefix=1
+        #            filters:
+        #            - StripPrefix=1
 
-#          - id: projectHelper
-#            uri: http://localhost:8051/
-#            predicates:
-#            - Path=/ph/**
-#            filters:
-#            - StripPrefix=1
+        #          - id: projectHelper
+        #            uri: http://localhost:8051/
+        #            predicates:
+        #            - Path=/ph/**
+        #            filters:
+        #            - StripPrefix=1
 
-          - id: modonotice
-            uri: lb://modoModule/
-            predicates:
+        - id: modonotice
+          uri: lb://modoModule/
+          predicates:
             - Path=/notice/**
-            filters:
+          filters:
             - StripPrefix=1
 
 #          - id: modoversion

@@ -8,7 +8,7 @@ public class Handler {
         this.nextHandler = nextHandler;
     }
 
-    public void doHandle(Object object){
+    public void doHandle(Object object) {
         System.out.println("header !!!");
         nextHandler.doHandle(object);
     }

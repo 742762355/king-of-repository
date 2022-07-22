@@ -25,9 +25,9 @@ public class GenColumn {
 
     private String columnComment;
 
-    private List<String> annotationKeys=new LinkedList<>();
+    private List<String> annotationKeys = new LinkedList<>();
 
-    private Map<String,Map<String,String>> annotationMap=new HashMap<>();
+    private Map<String, Map<String, String>> annotationMap = new HashMap<>();
 
     public String getTableSchema() {
         return tableSchema;

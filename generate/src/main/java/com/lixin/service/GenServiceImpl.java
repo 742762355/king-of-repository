@@ -20,59 +20,61 @@ import java.io.StringWriter;
 import java.util.List;
 
 @Service
-public class GenServiceImpl implements GenService{
+public class GenServiceImpl implements GenService {
 
     @Autowired
     private GenMapper genMapper;
 
-    public void gen(){
+    public void gen() {
         List<GenColumn> columns = genMapper.selectColumns(PropertiesConfig.tableName, PropertiesConfig.databaseName);
         String tableComment = genMapper.selectTableComment(PropertiesConfig.tableName, PropertiesConfig.databaseName);
-        GenInfo template=new GenInfo();
-        if (StringUtils.isNotEmpty(tableComment)){
-            template.tableComment=tableComment;
+        GenInfo template = new GenInfo();
+        if (StringUtils.isNotEmpty(tableComment)) {
+            template.tableComment = tableComment;
         }
         //todo 简单模式 simpleMode()
-        if (columns.size()==0)return;
-        loadInfo(template,columns);
+        if (columns.size() == 0) {
+            return;
+        }
+        loadInfo(template, columns);
         VelocityInitializer.initVelocity();
         VelocityContext context = VelocityUtils.prepareContext(template);
         List<String> renderTemplate = VelocityUtils.getRenderTemplate();
         for (String render : renderTemplate) {
-            StringWriter writer=new StringWriter();
+            StringWriter writer = new StringWriter();
             Template tpl = Velocity.getTemplate(render, "UTF-8");
-            tpl.merge(context,writer);
+            tpl.merge(context, writer);
             //todo 多个目录 根据template 获取
             try {
-                String path="D:/data/template/SysUser.java";
+                String path = "D:/data/template/SysUser.java";
                 File file = new File(path);
-                if (file.getParentFile()!=null&&!file.getParentFile().exists()){
+                if (file.getParentFile() != null && !file.getParentFile().exists()) {
                     file.getParentFile().mkdirs();
                 }
-                FileUtils.writeStringToFile(file,writer.toString(),"UTF-8");
-            }catch (Exception e){
+                FileUtils.writeStringToFile(file, writer.toString(), "UTF-8");
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
     private void loadInfo(GenInfo template, List<GenColumn> columns) {
-        template.columns=columns;
+        template.columns = columns;
         //根据字段名是否包含fk筛选出param参数
         for (GenColumn column : columns) {
-            if (template.isPK(column.getColumnName())){
-                template.pkName=column.getColumnName();
+            if (template.isPK(column.getColumnName())) {
+                template.pkName = column.getColumnName();
             }
             //获取驼峰名
             String name = GenUtils.toHump(column.getColumnName());
             column.setName(name);
             GenUtils.typeConvert(column);
-            GenUtils.typeClassConvert(template.importClass,column.getDataType());
-            GenUtils.makeAnnotation(template.importClass,column);
+            GenUtils.typeClassConvert(template.importClass, column.getDataType());
+            GenUtils.makeAnnotation(template.importClass, column);
         }
-        if (StringUtils.isEmpty(template.pkName)){
+        if (StringUtils.isEmpty(template.pkName)) {
             String columnName = columns.get(0).getColumnName();
-            template.pkName=columnName;
+            template.pkName = columnName;
         }
     }
 

@@ -38,7 +38,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <configuration><encoding>UTF-8</encoding>
+                <configuration>
+                    <encoding>UTF-8</encoding>
                     <!-- 过滤后缀为pkcs12、jks的证书文件 -->
                     <nonFilteredFileExtensions>
                         <nonFilteredFileExtension>p12</nonFilteredFileExtension>

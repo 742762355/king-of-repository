@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 public class LogAspect {
 
     @Pointcut("@annotation(com.lixin.core.annotation.Log)")
-    public void pointcut(){
+    public void pointcut() {
 
     }
 
     @Around("pointcut()")
-    public Object around(ProceedingJoinPoint proceed){
+    public Object around(ProceedingJoinPoint proceed) {
         Object result = null;
         try {
             System.out.println("日志切面前");

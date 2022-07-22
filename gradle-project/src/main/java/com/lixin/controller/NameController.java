@@ -10,7 +10,7 @@ public class NameController {
 
 
     @GetMapping
-    public String test(){
+    public String test() {
         return "test";
     }
 

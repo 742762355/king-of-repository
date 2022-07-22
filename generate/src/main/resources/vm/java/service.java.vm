@@ -6,7 +6,7 @@ import ${packageName}.domain.base.PageResult;
 
 import java.util.List;
 
-public interface ${tableName}Service{
+public interface ${tableName}Service {
 
     int add${tableName}(${tableName} ${exampleName});
 

@@ -21,7 +21,7 @@ public class GenerateCode {
     private GenService genService;
 
     @Test
-    public void testProperties(){
+    public void testProperties() {
         genService.gen();
     }
 }

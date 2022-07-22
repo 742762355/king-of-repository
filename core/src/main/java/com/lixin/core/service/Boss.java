@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author:lixin
- * @date:2020/4/26  10:51
+ * @date:2020/4/26 10:51
  * @description: 测试spring的@autowired
  * 如果同时有@autowired修饰的构造和无参  优先使用构造
  * 如果构造多个(多个的话都得加上required=false,不然会报错)  则使用参数最多的(俺也不确定,测试是每次都会调用最多参数的,具体的得看spring源码中如何设计,如何调用)
@@ -17,10 +17,10 @@ import org.springframework.stereotype.Service;
 @Component
 public class Boss {
 
-//    @Autowired
+    //    @Autowired
     private Worker worker;
 
-//    @Autowired
+    //    @Autowired
     private Manager manager;
 
     private Worker1 worker1;
@@ -30,9 +30,9 @@ public class Boss {
 //        System.out.println("无参构造");
 //    }
 
-//    @Autowired(required = false)
-    public Boss(Worker worker){
-        this.worker=worker;
+    //    @Autowired(required = false)
+    public Boss(Worker worker) {
+        this.worker = worker;
         System.out.println("参数为worker的构造");
     }
 
@@ -61,7 +61,6 @@ public class Boss {
 //        this.manager=manager;
 //        System.out.println("参数为worker1+manager的构造");
 //    }
-
 
 
 //    @Autowired(required = false)

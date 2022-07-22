@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @Component("corsResponseHeaderFilter")
 public class CorsResponseHeaderFilter implements GlobalFilter, Ordered {
 
-    private static Logger logger=LoggerFactory.getLogger(CorsResponseHeaderFilter.class);
+    private static Logger logger = LoggerFactory.getLogger(CorsResponseHeaderFilter.class);
 
     @Override
     public int getOrder() {
@@ -30,14 +30,14 @@ public class CorsResponseHeaderFilter implements GlobalFilter, Ordered {
         logger.debug("222");
         return chain.filter(exchange).then(Mono.defer(() -> {
             exchange.getResponse().getHeaders().entrySet().stream()
-                    .filter(kv -> (kv.getValue() != null && kv.getValue().size() > 1))
-                    .filter(kv -> (kv.getKey().equals(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN)
-                            || kv.getKey().equals(HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS)))
-                    .forEach(kv -> {
-                        kv.setValue(new ArrayList<String>() {{
-                            add(kv.getValue().get(0));
-                        }});
-                    });
+                .filter(kv -> (kv.getValue() != null && kv.getValue().size() > 1))
+                .filter(kv -> (kv.getKey().equals(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN)
+                    || kv.getKey().equals(HttpHeaders.ACCESS_CONTROL_ALLOW_CREDENTIALS)))
+                .forEach(kv -> {
+                    kv.setValue(new ArrayList<String>() {{
+                        add(kv.getValue().get(0));
+                    }});
+                });
 
             return chain.filter(exchange);
         }));

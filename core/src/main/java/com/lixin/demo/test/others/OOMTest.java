@@ -10,16 +10,16 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class OOMTest {
 
-    private ScheduledExecutorService executors=Executors.newScheduledThreadPool(10);
+    private ScheduledExecutorService executors = Executors.newScheduledThreadPool(10);
 
-//    @PostConstruct
-    public void init(){
-        executors.schedule(new RunTask(),1,TimeUnit.SECONDS);
+    //    @PostConstruct
+    public void init() {
+        executors.schedule(new RunTask(), 1, TimeUnit.SECONDS);
     }
 
-    private static class RunTask implements Runnable{
+    private static class RunTask implements Runnable {
 
-        static int size=10000000;
+        static int size = 10000000;
 
         @Override
         public void run() {

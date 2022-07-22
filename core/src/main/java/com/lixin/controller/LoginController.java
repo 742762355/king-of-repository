@@ -14,12 +14,12 @@ public class LoginController {
     private BaseService baseService;
 
     @PostMapping("/login")
-    public String login(){
+    public String login() {
         return "111";
     }
 
     @GetMapping("/login")
-    public String login1(){
+    public String login1() {
         return "111";
     }
 }

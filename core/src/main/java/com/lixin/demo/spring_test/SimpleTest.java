@@ -1,6 +1,10 @@
 package com.lixin.demo.spring_test;
 
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.fge.jsonschema.core.report.ProcessingReport;
+import com.github.fge.jsonschema.main.JsonSchemaFactory;
 import com.lixin.demo.utils.XmlUtil;
 import common.utils.LogUtil;
 import java.io.ByteArrayInputStream;
@@ -8,6 +12,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +24,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.constraints.NotNull;
 import javax.xml.parsers.ParserConfigurationException;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -253,5 +259,38 @@ public class SimpleTest {
     private class ValidateEntity {
         @NotNull
         private String name;
+    }
+
+    @Test
+    public void validateJson() {
+        List<Object> value = new LinkedList<>();
+        value.add(new ArrayList<String>() {{
+            add("上海中南建筑材料有限公司2");
+        }});
+        CheckSchema schema = new CheckSchema();
+        schema.setType("array");
+        schema.setItems(new ArrayList<Object>() {{
+            LinkedHashMap<Object, Object> map = new LinkedHashMap<>();
+            map.put("type", "string");
+            add(map);
+        }});
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode data = mapper.valueToTree(value);
+        JsonNode valueSchema = mapper.valueToTree(schema);
+        ProcessingReport report = JsonSchemaFactory.byDefault().getValidator().validateUnchecked(valueSchema, data);
+        System.out.println(report.isSuccess());
+    }
+
+    @Data
+    public static class CheckSchema {
+        //("array-数组")
+        private String type;
+        //("最大个数")
+        private int maxItems;
+        //("最小个数")
+        private int minItems;
+        //("参数校验限制")
+        private Object items;
     }
 }

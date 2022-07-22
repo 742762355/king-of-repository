@@ -11,12 +11,12 @@ public class IndexController {
 
 
     @GetMapping("/index.html")
-    public String goIndex(){
+    public String goIndex() {
         return "index";
     }
 
     @GetMapping("/2d.html")
-    public String go2d(){
+    public String go2d() {
         return "2d";
     }
 }

@@ -8,16 +8,16 @@ import java.util.regex.Pattern;
 
 public class StringUtil {
 
-    private static String regEx="[~!/@#$%^&*()-_=+\\|[{}];:\'\",<.>/?]+";
+    private static String regEx = "[~!/@#$%^&*()-_=+\\|[{}];:\'\",<.>/?]+";
 
 
     /**
      * @author:lixin
-     * @date:2020/5/23  8:58
+     * @date:2020/5/23 8:58
      * @description: 判断是否匹配某些字符串
      */
-    public static boolean isMatch(String s){
-        Pattern p=Pattern.compile(regEx);
+    public static boolean isMatch(String s) {
+        Pattern p = Pattern.compile(regEx);
         Matcher matcher = p.matcher(s);
         return matcher.find();
     }
@@ -85,11 +85,11 @@ public class StringUtil {
         return content;
     }
 
-    
+
     /**
      * @author:lixin
-     * @date:2020/5/23  8:59
-     * @description: 验证是否是手机号,(电话号码可能不支持) 辣鸡正则有问题
+     * @date:2020/5/23 8:59
+     * @description: 验证是否是手机号, (电话号码可能不支持) 辣鸡正则有问题
      */
     public static boolean isMobile(final String str) {
         Pattern p = null;

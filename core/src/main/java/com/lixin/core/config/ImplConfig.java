@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 @Configuration
-public class ImplConfig extends CommonConfig{
+public class ImplConfig extends CommonConfig {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {

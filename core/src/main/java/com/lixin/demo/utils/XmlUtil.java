@@ -33,7 +33,8 @@ public class XmlUtil {
 //        String xml = turnDocumentToString();
 //        xml =xml.replace("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>", "");
 //        xml = replaceBlank(xml);
-        String xml="<root><returnContents><returnContent><test>大叔大婶</test><name>哥哥哥</name></returnContent><returnContent><test>大叔大婶11</test><name>哥哥哥22</name></returnContent></returnContents></root>";
+        String xml =
+            "<root><returnContents><returnContent><test>大叔大婶</test><name>哥哥哥</name></returnContent><returnContent><test>大叔大婶11</test><name>哥哥哥22</name></returnContent></returnContents></root>";
 //        OutApiController o=new OutApiController();
 //        List<Map<String, String>> maps = o.xml2Map(xml);
         System.out.println(1);
@@ -47,16 +48,16 @@ public class XmlUtil {
         Element xmlParam = getXmlParam(document, "//return//POOR_IN200902UV//controlActProcess//subject//placerGroup", "");
     }
 
-    private List<Map<String,String>> xml2Map(String xml){
+    private List<Map<String, String>> xml2Map(String xml) {
         org.dom4j.Document document = XmlUtil.load(xml, "utf-8");
         List<Element> returnContents = document.getRootElement().element("returnContents").elements();
         List<Element> elements = document.getRootElement().element("returnContents").element("returnContent").elements();
-        List<Map<String,String>> result=new LinkedList<>();
+        List<Map<String, String>> result = new LinkedList<>();
 
         for (Element element : returnContents) {
             List<Element> returnContent = element.content();
             HashMap<String, String> params = new HashMap<>();
-            for (Element item:returnContent){
+            for (Element item : returnContent) {
                 String value = item.getText();
                 String key = item.getName();
                 params.put(key, value);
@@ -93,7 +94,7 @@ public class XmlUtil {
             // 读取 xml 文件
             File fileinput = new File("E:/fileDownload/asa.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory
-                    .newInstance();
+                .newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fileinput);
 
@@ -128,7 +129,9 @@ public class XmlUtil {
 
     private static <T> T getXmlParam(org.dom4j.Document document, String expression, String attributeName) {
         List<Node> nodeList = document.selectNodes(expression);
-        if (CollectionUtils.isEmpty(nodeList)) return null;
-        return (T)XmlUtil.getAttrValue(nodeList.get(0), attributeName);
+        if (CollectionUtils.isEmpty(nodeList)) {
+            return null;
+        }
+        return (T) XmlUtil.getAttrValue(nodeList.get(0), attributeName);
     }
 }

@@ -20,7 +20,7 @@
             <mobilePhone>手机号码</mobilePhone>
             <workStatus>在职状态</workStatus>
             <titleCode>职称代码</titleCode>
-            <titleName>职称名称：主任，副主任</titleName >
+            <titleName>职称名称：主任，副主任</titleName>
         </returnContent>
     </returnContents>
 </root>

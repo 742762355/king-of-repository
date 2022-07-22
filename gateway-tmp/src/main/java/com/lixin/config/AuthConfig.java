@@ -21,7 +21,7 @@ public class AuthConfig {
 
     @PostConstruct
     public void init() {
-        System.out.println("配置初始化!!!"+appId);
+        System.out.println("配置初始化!!!" + appId);
         logger.debug("配置初始化debug");
     }
 }

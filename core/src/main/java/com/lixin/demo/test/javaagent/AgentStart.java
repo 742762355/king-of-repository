@@ -6,7 +6,7 @@ public class AgentStart {
         System.out.println("start main");
     }
 
-    public void test(){
+    public void test() {
 
     }
 }

@@ -40,60 +40,60 @@ public class SpringTest {
 
     /**
      * @author:lixin
-     * @date:2020/5/24  23:18
+     * @date:2020/5/24 23:18
      * @description: ???????????aop
      */
     @Test
-    public void testLogAop(){
+    public void testLogAop() {
         worker.doWork(1);
     }
 
 
     /**
      * @author:lixin
-     * @date:2020/5/24  23:20
+     * @date:2020/5/24 23:20
      * @description: ????jdk8????default ?????
      * ??????????????????????????ζ???????ν??????
      */
     @Test
-    public void testDefault(){
+    public void testDefault() {
         System.out.println(person.playCode("i want 100w"));
         System.out.println(1);
     }
 
 
     @Test
-    public void async(){
+    public void async() {
         smsService.T1();
         smsService.T2();
     }
 
     @Test
-    public void testTranction(){
+    public void testTranction() {
         smsService.f1();
     }
 
     @Test
-    public void testDecode(){
+    public void testDecode() {
 
     }
 
     @Test
-    public void testTran(){
+    public void testTran() {
         userService.trans();
     }
 
 
     @Test
-    public void linkWebSocket() throws Throwable{
-        String wsUri="ws://localhost:8070/notice/websocket/466";
+    public void linkWebSocket() throws Throwable {
+        String wsUri = "ws://localhost:8070/notice/websocket/466";
         WebSocketContainer webSocketContainer = ContainerProvider.getWebSocketContainer();
-        Session session=null;
+        Session session = null;
         URI uri = URI.create(wsUri);
-        session=webSocketContainer.connectToServer(Client.class,uri);
+        session = webSocketContainer.connectToServer(Client.class, uri);
         session.getBasicRemote().sendText("www");
         InputStream in = System.in;
-        while (in.read()>1){
+        while (in.read() > 1) {
             System.out.println(1);
         }
     }

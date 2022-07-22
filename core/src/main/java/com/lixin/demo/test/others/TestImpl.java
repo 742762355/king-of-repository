@@ -63,9 +63,9 @@ public class TestImpl {
 
 
     @Test
-    public void soutTest(){
+    public void soutTest() {
 //        System.out.println(null+"0");
-        List<String> a=new LinkedList<>();
+        List<String> a = new LinkedList<>();
         a.add("11");
         a.add("22");
         a.add("33");

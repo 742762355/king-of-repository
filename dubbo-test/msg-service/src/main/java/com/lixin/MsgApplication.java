@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MsgApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MsgApplication.class,args);
+        SpringApplication.run(MsgApplication.class, args);
         System.out.println("msg-server启动成功");
     }
 }

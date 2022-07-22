@@ -11,9 +11,9 @@ public class ConstructTestPostProcessor implements BeanFactoryPostProcessor {
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        AbstractBeanDefinition boss = (AbstractBeanDefinition)beanFactory.getBeanDefinition("boss");
-        System.out.println("autowireMode:"+boss.getAutowireMode());
+        AbstractBeanDefinition boss = (AbstractBeanDefinition) beanFactory.getBeanDefinition("boss");
+        System.out.println("autowireMode:" + boss.getAutowireMode());
 //        boss.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
-        System.out.println("autowireMode:"+boss.getAutowireMode());
+        System.out.println("autowireMode:" + boss.getAutowireMode());
     }
 }

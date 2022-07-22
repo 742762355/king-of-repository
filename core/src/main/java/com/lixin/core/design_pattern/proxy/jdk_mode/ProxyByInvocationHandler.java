@@ -12,18 +12,18 @@ public class ProxyByInvocationHandler implements InvocationHandler {
         this.object = object;
     }
 
-    public Object newInstance(){
-        return Proxy.newProxyInstance(object.getClass().getClassLoader(),object.getClass().getInterfaces(),this);
+    public Object newInstance() {
+        return Proxy.newProxyInstance(object.getClass().getClassLoader(), object.getClass().getInterfaces(), this);
     }
 
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("代理之前");
-        return method.invoke(object,args);
+        return method.invoke(object, args);
     }
 
-    public Object getRealObj(){
+    public Object getRealObj() {
         return object;
     }
 }

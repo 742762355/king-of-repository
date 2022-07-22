@@ -17,12 +17,12 @@ public class MainController {
     private MainService mainService1;
 
     @GetMapping("/t")
-    public void doSomething(){
+    public void doSomething() {
         mainService.run();
     }
 
     @GetMapping("/t1")
-    public void doSomething1(){
+    public void doSomething1() {
         mainService1.run();
     }
 }

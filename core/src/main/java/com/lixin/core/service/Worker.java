@@ -11,7 +11,7 @@ public class Worker {
 
     @Log
     @Limit("12")
-    public void doWork(Integer i){
+    public void doWork(Integer i) {
         System.out.println(i.hashCode());
     }
 }

@@ -9,7 +9,7 @@ public class CTest {
 
 
     @PostConstruct
-    public void init(){
+    public void init() {
         System.out.println("ctest初始化。。。。。。。");
     }
 }

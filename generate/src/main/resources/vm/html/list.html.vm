@@ -1,9 +1,21 @@
 <%
 var scriptSection={
 %>
-<script type="text/javascript" src="${ctxPath}/script/${_tableName}.toLowerCase().replace("_","/")/list.js?version=${version}"></script>
-<%};%>
+<script type="text/javascript" src="${ctxPath}/script/${_tableName}.toLowerCase().replace("
+        _","/")/list.js?version=${version}"></script>
+<%
+}
+;
+%>
 
 <%
-include("/_share/manage-default.html",{title:"${tableComment}列表}",styleSection:null,bodySection:null,libScriptSection:null,scriptSection:scriptSection}){}
+include("/_share/manage-default.html", {
+    title: "${tableComment}列表}",
+    styleSection: null,
+    bodySection: null,
+    libScriptSection: null,
+    scriptSection: scriptSection
+})
+{
+}
 %>

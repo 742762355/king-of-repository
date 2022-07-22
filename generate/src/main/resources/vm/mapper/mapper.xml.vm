@@ -5,12 +5,13 @@
     <sql id="Base_Column_List">
         select
         #foreach($column in $columns)
-        t1.${column.columnName} as ${column.name}
+            t1.${column.columnName} as ${column.name}
         #end
         from ${_tableName} t1
     </sql>
 
-    <select id="get${tableName}List" parameterType="java.lang.String" resultType="${packageName}.domain.${prefix}.${tableName}">
+    <select id="get${tableName}List" parameterType="java.lang.String"
+            resultType="${packageName}.domain.${prefix}.${tableName}">
         <include refid="Base_Column_List"/>
         <where>
 

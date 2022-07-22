@@ -5,13 +5,13 @@ import org.slf4j.LoggerFactory;
 
 public class LogUtil {
 
-    private static final Logger errorLogger=LoggerFactory.getLogger("ERROR_FILE");
+    private static final Logger errorLogger = LoggerFactory.getLogger("ERROR_FILE");
 
-    public static void error(String msg){
+    public static void error(String msg) {
         errorLogger.error(msg);
     }
 
-    public static void error(String msg,Throwable throwable){
-        errorLogger.error(msg,throwable);
+    public static void error(String msg, Throwable throwable) {
+        errorLogger.error(msg, throwable);
     }
 }

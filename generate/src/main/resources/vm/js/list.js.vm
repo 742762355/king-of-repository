@@ -74,7 +74,7 @@ require(['common', 'baseLayout', 'hciMask', 'request'], function (common, BaseLa
                         isUsePage: false,
                         columns: [
                             #foreach($column in $columns)
-                            {display: '${columnComment}', name: '${name}', width: 150, align: 'center'},
+                                {display: '${columnComment}', name: '${name}', width: 150, align: 'center'},
                             #end
                             {
                                 display: '操作', width: 60, align: 'center', fixed: 'right',
@@ -131,7 +131,7 @@ require(['common', 'baseLayout', 'hciMask', 'request'], function (common, BaseLa
                                 if (baseLayout) {
                                     var select = baseLayout.params.cells["a"].gridObj.getSelectedRow();
                                     if (select && select["id"]) {
-                                        var urlParam =  {
+                                        var urlParam = {
                                             fkDepartmentId: select["id"]
                                         };
                                         return urlParam;

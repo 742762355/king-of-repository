@@ -9,7 +9,7 @@ public class Worker1 {
 
 
     @Log
-    public void doWork(Integer i){
+    public void doWork(Integer i) {
         System.out.println(i.hashCode());
     }
 }

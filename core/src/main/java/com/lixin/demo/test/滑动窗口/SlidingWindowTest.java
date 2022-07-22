@@ -12,7 +12,7 @@ public class SlidingWindowTest {
      * @date 2021/12/3 16:41
      * @describe arr为数字数组, k为窗口的长度
      */
-    @SuppressWarnings({"SameParameterValue","ConstantConditions"})
+    @SuppressWarnings({"SameParameterValue", "ConstantConditions"})
     private static int[] max(int[] arr, int k) {
         int[] res = new int[arr.length - k + 1];
         LinkedList<Integer> list = new LinkedList<>();
@@ -26,11 +26,11 @@ public class SlidingWindowTest {
         return res;
     }
 
-    @SuppressWarnings({"SameParameterValue","ConstantConditions"})
-    private static List<int[]> fixLength(int[] arr,int windowsLength){
-        List<int[]> res=new LinkedList<>();
-        for (int i = 0; i < arr.length-windowsLength+1; i++) {
-            int[] new1=new int[windowsLength];
+    @SuppressWarnings({"SameParameterValue", "ConstantConditions"})
+    private static List<int[]> fixLength(int[] arr, int windowsLength) {
+        List<int[]> res = new LinkedList<>();
+        for (int i = 0; i < arr.length - windowsLength + 1; i++) {
+            int[] new1 = new int[windowsLength];
             System.arraycopy(arr, i, new1, 0, windowsLength);
             res.add(new1);
         }

@@ -8,9 +8,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CommonConfig implements WebMvcConfigurer {
 
-    private static String[] excludePaths={
-            "/module/update/reform",
-            "/module/test/redis",
+    private static String[] excludePaths = {
+        "/module/update/reform",
+        "/module/test/redis",
     };
 
 

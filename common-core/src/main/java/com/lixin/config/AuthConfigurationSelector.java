@@ -17,6 +17,6 @@ public class AuthConfigurationSelector extends AdviceModeImportSelector<EnableAu
 //                System.out.println(1);
 //            case ASPECTJ:
 //        }
-        return new String[]{AuthAutoConfiguration.class.getName()};
+        return new String[] {AuthAutoConfiguration.class.getName()};
     }
 }

@@ -8,24 +8,24 @@ import java.util.concurrent.*;
 
 public class CountDownObject {
 
-    private static final CountDownLatch countDownLatch=new CountDownLatch(5);
+    private static final CountDownLatch countDownLatch = new CountDownLatch(5);
 
 //    private static List joinedList=new LinkedList();
 
-    private static boolean isFull=false;
+    private static boolean isFull = false;
 
 
-    private static class JoinWorker implements Runnable{
+    private static class JoinWorker implements Runnable {
 
         String joinId;
 
-        JoinWorker(String joinId){
-            this.joinId=joinId;
+        JoinWorker(String joinId) {
+            this.joinId = joinId;
         }
 
         @Override
-        public void run(){
-            if (!isFull){
+        public void run() {
+            if (!isFull) {
 //                joinedList.add(joinId);
                 try {
                     Thread.sleep(3000);
@@ -40,24 +40,24 @@ public class CountDownObject {
     }
 
     @Test
-    public void mainThread(){
+    public void mainThread() {
         System.out.println("主线程准备--并等待其他5人加入");
         for (int i = 0; i < 5; i++) {
-            new Thread(new JoinWorker("the "+(i+1)+" person")).run();
+            new Thread(new JoinWorker("the " + (i + 1) + " person")).run();
         }
         try {
             countDownLatch.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        isFull=true;
+        isFull = true;
         System.out.println("主线程执行完成了");
     }
 
     /**
      * @author:lixin
-     * @date:2020/5/20  10:57
-     * @description: 假设5个人加入房间,5个人都加入了才执行操作
+     * @date:2020/5/20 10:57
+     * @description: 假设5个人加入房间, 5个人都加入了才执行操作
      */
 //    public void join(String joinId){
 //        if (!isFull){
@@ -128,7 +128,7 @@ class CountDownLatchTest {
             public void run() {
                 try {
                     Thread.sleep(3000);
-                    System.out.println("子线程："+Thread.currentThread().getName()+"执行");
+                    System.out.println("子线程：" + Thread.currentThread().getName() + "执行");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -147,7 +147,7 @@ class CountDownLatchTest {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("子线程："+Thread.currentThread().getName()+"执行");
+                System.out.println("子线程：" + Thread.currentThread().getName() + "执行");
                 latch.countDown();
             }
         });

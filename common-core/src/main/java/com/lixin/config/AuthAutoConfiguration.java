@@ -7,16 +7,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "modo.user.enabled",matchIfMissing = true)
+@ConditionalOnProperty(name = "modo.user.enabled", matchIfMissing = true)
 public class AuthAutoConfiguration {
 
 
     @Bean
     @ConditionalOnMissingBean
-    public AuthorizationAdvisor getHandler(){
+    public AuthorizationAdvisor getHandler() {
         return new AuthorizationAdvisor();
     }
-
 
 
 }

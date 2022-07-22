@@ -26,7 +26,7 @@ abstract class AbstractAuthInterceptor {
         this.annotationClass = annotationClass;
     }
 
-    public Annotation getAnnotation(MethodInvocation methodInvocation){
+    public Annotation getAnnotation(MethodInvocation methodInvocation) {
         return methodInvocation.getMethod().getAnnotation(getAnnotationClass());
     }
 }

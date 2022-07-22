@@ -16,10 +16,10 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class ${tableName}ServiceImpl implements ${tableName}Service{
+public class ${tableName}ServiceImpl implements ${tableName}Service {
 
     @Autowired
-    ${tableName}Mapper ${exampleName}Mapper;
+        ${tableName}Mapper ${exampleName}Mapper;
 
     @Override
     public int add${tableName}(${tableName} ${exampleName}) {
@@ -40,10 +40,13 @@ public class ${tableName}ServiceImpl implements ${tableName}Service{
     @Override
     public int del${tableName}List(String ids) {
         String[] idArray = ids.split(",");
-        Example example = new Example(${tableName}.class);
+        Example example = new Example(${tableName}. class);
         example.createCriteria().andIn("id", Arrays.asList(idArray));
-        return ${exampleName}Mapper.deleteByExample(example)};
+        return ${exampleName}Mapper.deleteByExample(example)
     }
+
+    ;
+}
 
     @Override
     public ${tableName} get${tableName}(String id) {

@@ -5,27 +5,27 @@
 
 </head>
 <body>
-    主页
-    <button onclick="login()">login</button>
-    <div id="date"></div>
+主页
+<button onclick="login()">login</button>
+<div id="date"></div>
 
 <script type="text/javascript" src="/lib/jq/jquery.js"></script>
 <script type="text/javascript">
     // var API_PATH="http://localhost:8091";
     function login() {
         $.ajax({
-            type:'post',
-            url:"http://localhost:8199"+"/module/common/use/list",
-            contentType:"application/json",
-            dataType:"json",
+            type: 'post',
+            url: "http://localhost:8199" + "/module/common/use/list",
+            contentType: "application/json",
+            dataType: "json",
             headers: {'Content-Type': 'application/json'},
-            data:JSON.stringify({
-                "userId":111
+            data: JSON.stringify({
+                "userId": 111
             }),
-            success:function () {
+            success: function () {
                 console.log("success")
             },
-            error:function () {
+            error: function () {
                 console.log("error")
             }
         })

@@ -16,7 +16,7 @@ public class GenInfo {
 
     public Set<String> importClass;
 
-    public boolean isPK(String columnName){
+    public boolean isPK(String columnName) {
         return columnName.equals("PK");
     }
 
@@ -24,7 +24,7 @@ public class GenInfo {
         this.importClass = new HashSet<>();
         this.importClass.add("javax.persistence.Column");
         this.importClass.add("javax.persistence.Table");
-        this.importClass.add(PropertiesConfig.packageName+".domain.base.BaseEntity");
+        this.importClass.add(PropertiesConfig.packageName + ".domain.base.BaseEntity");
     }
 
 }

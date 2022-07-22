@@ -9,12 +9,12 @@ public class BugNumberOutUtil {
 
 
     @Test
-    public void out(){
-        Integer[] bugIds={37493};
-        String out="";
+    public void out() {
+        Integer[] bugIds = {37493};
+        String out = "";
         for (int i = 0; i < bugIds.length; i++) {
-            if (i==bugIds.length-1) {
-                Integer s=bugIds[i];
+            if (i == bugIds.length - 1) {
+                Integer s = bugIds[i];
 //                System.out.print("\""+s+"\""+",");
 //                continue;
 
@@ -24,64 +24,66 @@ public class BugNumberOutUtil {
     }
 
     @Test
-    public void testDate(){
-        String start="08:33";
-        String end="08:30";
-        SimpleDateFormat dateFormat=new SimpleDateFormat("HH:ss");
-        Date d1=null;
-        Date d2=null;
+    public void testDate() {
+        String start = "08:33";
+        String end = "08:30";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:ss");
+        Date d1 = null;
+        Date d2 = null;
         try {
-            d1=dateFormat.parse(start);
-            d2=dateFormat.parse(end);
-        }catch (Exception e){
+            d1 = dateFormat.parse(start);
+            d2 = dateFormat.parse(end);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println(d1.compareTo(d2));
     }
 
     @Test
-    public void test(){
-        if (1==1){
+    public void test() {
+        if (1 == 1) {
             throw new RuntimeException();
         }
         try {
             System.out.println("处理异常");
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("异常了");
-        }finally {
+        } finally {
             System.out.println(123456);
         }
     }
 
     @Test
-    public void testCatch(){
+    public void testCatch() {
         System.out.println(saveLog());
     }
 
-    public String methodInvoke(){
+    public String methodInvoke() {
         return "12345678xx";
     }
 
-    public String saveLog(){
+    public String saveLog() {
         String s = methodInvoke();
         try {
-            if (1==1)throw new Exception("发生错误了!");
-        }catch (Exception e){
+            if (1 == 1) {
+                throw new Exception("发生错误了!");
+            }
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             return s;
         }
     }
 
 
     @Test
-    public void testThrowable(){
+    public void testThrowable() {
         System.out.println(thr());
     }
 
-    public String thr(){
+    public String thr() {
         try {
-            int i=1/0;
+            int i = 1 / 0;
         } catch (Throwable e) {
             e.printStackTrace();
             throw new RuntimeException("123fail");

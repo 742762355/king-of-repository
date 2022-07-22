@@ -9,7 +9,9 @@ class RequiresPermissionsHandler extends AuthorizationHandler {
 
     @Override
     void checkPermissions(Annotation invocation) {
-        if (!(invocation instanceof RequiresPermissions))return;
+        if (!(invocation instanceof RequiresPermissions)) {
+            return;
+        }
         RequiresPermissions annotation = (RequiresPermissions) invocation;
         String[] value = annotation.value();
 

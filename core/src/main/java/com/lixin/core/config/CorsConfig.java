@@ -18,7 +18,9 @@ public class CorsConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         final CorsConfiguration configuration = new CorsConfiguration();
         //指定允许跨域的请求(*所有)：http://wap.ivt.guansichou.com
-        configuration.setAllowedOrigins(new ArrayList<String>(){{add("*");}});
+        configuration.setAllowedOrigins(new ArrayList<String>() {{
+            add("*");
+        }});
         configuration.setAllowedMethods(Arrays.asList("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH"));
         // setAllowCredentials(true) is important, otherwise:
         // The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'.

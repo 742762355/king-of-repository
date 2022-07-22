@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="api/${_tableName}.toLowerCase().replace("_","/")")
-@Api(tags={"${tableName}Controller"},description="${tableComment}接口}")
-public class ${tableName}Controller{
+@RequestMapping(value = "api/${_tableName}.toLowerCase().replace(" _"," / ")")
+@Api(tags = {"${tableName}Controller"}, description = "${tableComment}接口}")
+public class ${tableName}Controller {
 
     @Autowired
     private ${tableName}Service ${exampleName}Service;
 
     @RequestMapping(method = RequestMethod.POST)
-    @ApiOperation(value="新增${tableComment}",notes="新增${tableComment}")
+    @ApiOperation(value = "新增${tableComment}", notes = "新增${tableComment}")
     @SerializedField(moduleName = "新增${tableComment}")
     public int add(@RequestBody @Validated ${tableName} ${exampleName}) {
         return ${exampleName}Service.add${tableName}(${exampleName});
@@ -66,7 +66,8 @@ public class ${tableName}Controller{
     @RequestMapping(value = "/page/list", method = RequestMethod.GET)
     @ApiOperation(value = "获取${tableComment}分页列表", notes = "获取${tableComment}分页列表")
     @SerializedField(moduleName = "获取${tableComment}列表")
-    public PageResult<${tableName}> get${tableName}PageList(@RequestParam(required = false) String keyword, PageRequest pageRequest) {
+    public PageResult<${tableName}> get${tableName}PageList(@RequestParam(required = false) String keyword,
+                                                            PageRequest pageRequest) {
         return ${exampleName}Service.get${tableName}PageList(keyword, pageRequest);
     }
 }

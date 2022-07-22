@@ -5,7 +5,7 @@ import ${packageName}.domain.${prefix}.${tableName};
 
 import java.util.List;
 
-public interface ${tableName}Mapper extends MyBatisMapper<${tableName}>{
+public interface ${tableName}Mapper extends MyBatisMapper<${tableName}> {
 
     List<${tableName}> get${tableName}List(@Param("keyword") String keyword);
 }

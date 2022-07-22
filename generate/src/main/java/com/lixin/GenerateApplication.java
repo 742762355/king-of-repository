@@ -7,11 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.lixin.mapper")
-@ComponentScan("com.lixin")
 public class GenerateApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GenerateApplication.class,args);
+        SpringApplication.run(GenerateApplication.class, args);
         System.out.println("generate 项目启动成功");
     }
 }

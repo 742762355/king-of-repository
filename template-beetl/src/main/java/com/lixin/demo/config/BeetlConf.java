@@ -35,7 +35,7 @@ public class BeetlConf {
             beetlGroupUtilConfiguration.setConfigFileResource(patternResolver.getResource("classpath:Beetl.properties"));
             HashMap<String, Object> map = new HashMap<>();
             map.put("c", fn);
-            map.put("apiPath",apiPath);
+            map.put("apiPath", apiPath);
             beetlGroupUtilConfiguration.setFunctionPackages(map);
             return beetlGroupUtilConfiguration;
         } catch (Exception e) {
@@ -44,7 +44,8 @@ public class BeetlConf {
     }
 
     @Bean(name = "beetlViewResolver")
-    public BeetlSpringViewResolver getBeetlSpringViewResolver(@Qualifier("beetlConfig") BeetlGroupUtilConfiguration beetlGroupUtilConfiguration) {
+    public BeetlSpringViewResolver getBeetlSpringViewResolver(
+        @Qualifier("beetlConfig") BeetlGroupUtilConfiguration beetlGroupUtilConfiguration) {
         BeetlSpringViewResolver beetlSpringViewResolver = new BeetlSpringViewResolver();
         beetlSpringViewResolver.setContentType("text/html;charset=UTF-8");
         beetlSpringViewResolver.setOrder(0);

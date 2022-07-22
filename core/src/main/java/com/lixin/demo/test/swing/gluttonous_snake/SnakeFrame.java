@@ -57,7 +57,7 @@ public class SnakeFrame extends JFrame {
     private Component createMenuTab() {
         //TODO 设置配置的菜单
         JMenu jMenu = new JMenu("操作");
-        jMenu.setSize(80,20);
+        jMenu.setSize(80, 20);
 
         return new JMenu();
     }
